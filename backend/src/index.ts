@@ -1,10 +1,12 @@
-import express, { Request, Response, urlencoded } from "express";
+import express, { urlencoded } from "express";
 import cors from "cors";
 import "dotenv/config";
-import mongoose from "mongoose";
 import userRoutes from "./routes/users";
+import { connectDB } from "./utills/features";
 
-mongoose.connect(process.env.MONGODB_CONECTION_STRING as string);
+// mongoose.connect(process.env.MONGODB_CONECTION_STRING as string);
+
+connectDB();
 
 
 const app = express();
