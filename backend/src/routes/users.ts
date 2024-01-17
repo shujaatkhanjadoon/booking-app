@@ -19,7 +19,7 @@ router.post("/register", async (req: Request, res: Response) => {
 
         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY as string, { expiresIn: "1d"});
 
-        res.cookie("auth-token", token, { 
+        res.cookie("auth_token", token, { 
             httpOnly: true, 
             secure: process.env.NODE === "production",
             maxAge: 86400000,
